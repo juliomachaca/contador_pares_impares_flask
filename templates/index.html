@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Pares e Impares</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>Contador de Números Pares e Impares</h1>
+
+    <form id="formulario">
+        <label for="cantidad">Ingrese la cantidad de números:</label>
+        <input type="number" id="cantidad" required>
+        <button type="button" onclick="generarEntradas()">Generar Entradas</button>
+    </form>
+
+    <div id="entradas"></div>
+
+    <button onclick="contarParesImpares()" style="display: none;" id="contarBtn">Contar Pares e Impares</button>
+
+    <div id="resultado"></div>
+
+    <script>
+        function generarEntradas() {
+            const cantidad = document.getElementById('cantidad').value;
+            const entradasDiv = document.getElementById('entradas');
+            entradasDiv.innerHTML = ''; // Limpiar cualquier entrada previa
+
+            for (let i = 0; i < cantidad; i++) {
+                const input = document.createElement('input');
+                input.type = 'number';
+                input.placeholder = `Número ${i + 1}`;
+                input.className = 'numero';
+                entradasDiv.appendChild(input);
+            }
+            document.getElementById('contarBtn').style.display = 'block';
+        }
+
+        async function contarParesImpares() {
+            const numeros = Array.from(document.querySelectorAll('.numero')).map(input => parseInt(input.value));
+            
+            // Enviar los datos al servidor
+            const respuesta = await fetch('/contar', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ numeros })
+            });
+            
+            const resultado = await respuesta.json();
+            document.getElementById('resultado').innerText = 
+                `Cantidad de pares: ${resultado.pares}\nCantidad de impares: ${resultado.impares}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    padding: 20px;
+    background-color: #f0f4f8; /* Color de fondo suave */
+    color: #333; /* Color de texto oscuro para buen contraste */
+}
+
+/* Estilos del formulario */
+form {
+    background-color: #ffffff; /* Fondo blanco para contraste */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    display: inline-block;
+    max-width: 300px;
+    width: 100%;
+}
+
+/* Estilos para los inputs */
+input[type="number"] {
+    margin: 10px 0;
+    padding: 10px;
+    width: calc(100% - 22px); /* Ajuste de ancho con el padding */
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+    border-color: #3f72af; /* Color del borde al hacer focus */
+}
+
+/* Estilos para los botones */
+button {
+    background-color: #3f72af; /* Color principal del botón */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #355691; /* Color del botón al pasar el mouse */
+}
+
+button:active {
+    background-color: #2e4a7a; /* Color del botón al hacer clic */
+}
+
+/* Estilo para el contenedor de entradas dinámicas */
+#entradas {
+    margin-top: 20px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo del resultado */
+#resultado {
+    margin-top: 20px;
+    background-color: #dbe2ef;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    max-width: 300px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
